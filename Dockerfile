@@ -11,7 +11,8 @@ RUN apt-get update -qq && apt-get install -y \
     openssh-server \
     && rm -rf /var/lib/apt/lists/* && \
     rm -v /etc/ssh/ssh_host_* && \
-    mkdir -v -m 0700 /var/run/sshd
+    mkdir -v -m 0700 /var/run/sshd && \
+    chown -R hg: /etc/mercurial-server
 
 # settings for mercurial-server
 VOLUME	["/var/lib/mercurial-server/repos","/etc/mercurial-server"]
@@ -23,5 +24,4 @@ COPY    create_keys.sh /create_keys.sh
 CMD	["/start-mercurial-server.sh"]
 
 # run mercurial-server as normal user
-RUN	chown -R hg: /etc/mercurial-server
 USER	hg

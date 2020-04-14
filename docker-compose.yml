@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  mercurial-server:
+    build: .
+    expose:
+      - "8022"
+    environment:
+      - VIRTUAL_HOST=source.example.com
+      - VIRTUAL_PORT=8022
+      - LETSENCRYPT_HOST=source.example.com
+      - LETSENCRYPT_EMAIL=support@example.com
+    restart: always
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
