@@ -1,9 +1,10 @@
 # [mercurial-server](http://www.lshift.net/work/open-source/mercurial-server/) for Docker
 
-As a pre-requisite, a user must load a private SSH key. By default, ~/.ssh/id_rsa is loaded. 
-    $ eval `ssh-agent`
-    $ ssh-add
-    $ ssh-add -L
+As a pre-requisite, a user must load a private SSH key. By default, ~/.ssh/id_rsa is loaded: 
+
+    eval `ssh-agent`
+    ssh-add
+    ssh-add -L
 
 The repositories are in  `/var/lib/mercurial-server/repos`
 
